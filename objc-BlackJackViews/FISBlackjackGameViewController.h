@@ -13,5 +13,6 @@
 @interface FISBlackjackGameViewController : UIViewController
 
 @property (strong, nonatomic) FISBlackjackGame *blackjackGame;
+-(void)updateUI;
 
 @end

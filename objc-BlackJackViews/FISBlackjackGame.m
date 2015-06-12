@@ -45,12 +45,57 @@
 - (void ) deal {
     [self drawCard];
     [self drawCard];
+    self.isBusted = NO;
 }
 
 // should deal one additional card and add it card to the hand.
 - (void)hit {
-    [self drawCard];
+    
+    if ([self.handScore integerValue] > 21 ) {
+        // how do I make you do nothing?
+        ;
+    } else {
+        [self drawCard];
+    }
 }
+
+
+-(BOOL) isBusted {
+    if ([self.handScore integerValue] > 21) {
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL) isBlackjack {
+    if ([self.handScore integerValue] == 21) {
+        return YES;
+    }
+    return NO;
+}
+
+//    self.card1.text = [self.blackjackGame.hand[0] suit];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
