@@ -41,8 +41,8 @@
     NSArray *validSuits = @[@"♥", @"♠", @"♣",  @"♦"];
     NSArray *validRanks = @[@1, @2 , @3 , @4, @5, @6, @7, @8, @9, @10, @11, @12, @13];
     
-    for (NSInteger i = 0; i < validSuits.count; i++) {
-        for (NSInteger j = 0; j < 13; j++) { // suit loop
+    for (NSUInteger i = 0; i < validSuits.count; i++) {
+        for (NSUInteger j = 0; j < 13; j++) { // suit loop
             FISPlayingCard *card = [[FISPlayingCard alloc] initWithSuit:validSuits[i] rank:validRanks[j]];
             [newDeck addObject:card];
         }

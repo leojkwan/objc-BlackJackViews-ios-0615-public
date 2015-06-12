@@ -31,11 +31,7 @@
     
     [super viewDidLoad];
     self.blackjackGame = [[FISBlackjackGame alloc] init];
-    [self.blackjackGame deal];
     
-
-
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,18 +53,17 @@
 //        [self updateUI];
 //    }
     
+    
 }
 
 
 - (IBAction)dealButton:(UIButton *)sender {
     [self.blackjackGame deal];
-    self.card1.hidden = NO;
-    self.card2.hidden = NO;
-    
-    if ([self.blackjackGame.handScore integerValue] > 21) {
-        [self updateUI];
-    }
 
+    
+//    if ([self.blackjackGame.handScore integerValue] > 21) {
+
+    [self updateUI];
 }
 
 
@@ -77,6 +72,17 @@
     
     self.card1.text = [self.blackjackGame.hand[0] suit];
     self.card2.text = [self.blackjackGame.hand[1] suit];
+    
+    NSArray *cardLabel = @[self.card1, self.card2, self.card3, self.card4, self.card5];
+    
+    // count returns an unsigned integer
+    for (NSUInteger i = 0; i < [self.blackjackGame.hand count]; i++) {
+        UILabel *label = cardLabel[i];
+        FISPlayingCard *card = self.blackjackGame.hand[i];
+        card.suit = label.text;
+        label.hidden = NO;
+    }
+
     
     if ([self.blackjackGame.handScore integerValue] > 21) {
         self.blackjackGame.isBusted = YES;
